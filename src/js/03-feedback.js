@@ -21,8 +21,8 @@ function populateForm() {
     const savedMessage = localStorage.getItem(STORAGE_KEY);
     if(savedMessage){
         formData = JSON.parse(savedMessage);
-        inputEl.value = formData.email;
-        textareaEl.value = formData.message;
+        formData.message !== undefined ? textareaEl.value = formData.message : textareaEl.value = '';
+        formData.email !== undefined ? inputEl.value = formData.email : inputEl.value = '';
     };   
 };
 function onFormSubmit(evt) {
